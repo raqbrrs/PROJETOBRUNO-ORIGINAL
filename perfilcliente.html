@@ -10,7 +10,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/logo.png">
+
+
     <style>
+
         /* ===== VARIÁVEIS E RESET ===== */
         :root {
             --primary-color: #1a73e8;
@@ -392,6 +396,7 @@
             gap: 0.5rem;
         }
 
+        
         .action-btn {
             padding: 0.5rem 1rem;
             border-radius: 5px;
@@ -620,10 +625,13 @@
         to { opacity: 1; }
     }
 
+
     </style>
 </head>
 
 <body>
+
+
     <!-- Cabeçalho -->
     <header class="header" id="header">
         <div class="container">
@@ -650,14 +658,15 @@
     </header>
 
     <!-- Seção Perfil -->
+
     <section class="section profile-section">
         <div class="container">
             <div class="profile-container">
                 <!-- Sidebar do Perfil -->
                 <div class="profile-sidebar">
-                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Foto do perfil" class="profile-avatar">
-                    <h3 class="profile-name">Maria da Silva</h3>
-                    <p class="profile-email">maria.silva@example.com</p>
+                    <img src="https://st4.depositphotos.com/11574170/25191/v/450/depositphotos_251916955-stock-illustration-user-glyph-color-icon.jpg" alt="Foto do perfil" class="profile-avatar">
+                    <h3 class="profile-name">Carlos Silva</h3>
+                    <p class="profile-email">carlossilva@example.com</p>
 
                     <ul class="profile-menu">
                         <li class="profile-menu-item">
@@ -675,11 +684,7 @@
                                 <i class="fas fa-file-medical"></i> Histórico Médico
                             </a>
                         </li>
-                        <li class="profile-menu-item">
-                            <a href="#settings" class="profile-menu-link">
-                                <i class="fas fa-cog"></i> Configurações
-                            </a>
-                        </li>
+                    
                         <li class="profile-menu-item">
                             <a href="index.html" class="profile-menu-link" id="logoutBtn">
                                 <i class="fas fa-sign-out-alt"></i> Sair
@@ -701,7 +706,7 @@
                     <div class="profile-info" id="profileInfo">
                         <div class="profile-info-item">
                             <div class="profile-info-label">Nome Completo:</div>
-                            <div class="profile-info-value">Maria da Silva</div>
+                            <div class="profile-info-value">Carlos Silva Lopes</div>
                         </div>
                         <div class="profile-info-item">
                             <div class="profile-info-label">Data de Nascimento:</div>
@@ -717,7 +722,7 @@
                         </div>
                         <div class="profile-info-item">
                             <div class="profile-info-label">E-mail:</div>
-                            <div class="profile-info-value">maria.silva@example.com</div>
+                            <div class="profile-info-value">carlossilva@example.com</div>
                         </div>
                         <div class="profile-info-item">
                             <div class="profile-info-label">Endereço:</div>
@@ -729,7 +734,7 @@
                     <form class="edit-form" id="editProfileForm">
                         <div class="form-group">
                             <label for="fullName" class="form-label">Nome Completo</label>
-                            <input type="text" id="fullName" class="form-control" value="Maria da Silva">
+                            <input type="text" id="fullName" class="form-control" value="Carlos Silva Lopes">
                         </div>
                         <div class="form-group">
                             <label for="birthDate" class="form-label">Data de Nascimento</label>
@@ -745,7 +750,7 @@
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">E-mail</label>
-                            <input type="email" id="email" class="form-control" value="maria.silva@example.com">
+                            <input type="email" id="email" class="form-control" value="carlossilva@example.com">
                         </div>
                         <div class="form-group">
                             <label for="address" class="form-label">Endereço</label>
@@ -827,11 +832,11 @@
                 <div class="footer-col">
                     <h3 class="footer-title"></h3>
                     <ul class="footer-links">
-                        <li><a href="#home" class="footer-link">Início</a></li>
-                        <li><a href="#services" class="footer-link">Serviços</a></li>
-                        <li><a href="#appointment" class="footer-link">Agendamento</a></li>
-                        <li><a href="#contact" class="footer-link">Contato</a></li>
-                        <li><a href="#sobre" class="footer-link">Sobre nós</a></li>
+                        <li><a href="dashboard.html" class="footer-link">Início</a></li>
+                        <li><a href="dashboard.html" class="footer-link">Serviços</a></li>
+                        <li><a href="dashboard.html" class="footer-link">Agendamento</a></li>
+                        <li><a href="contato.html" class="footer-link">Contato</a></li>
+                        <li><a href="sobrenos.html" class="footer-link">Sobre nós</a></li>
                     </ul>
                 </div>
 
@@ -862,6 +867,7 @@
 
 
     <script>
+
         // Menu Mobile
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navList = document.getElementById('navList');
@@ -1003,7 +1009,10 @@
                 header.classList.remove('scrolled');
             }
         });
+
+        
     </script>
+    
 </body>
 
 </html>
