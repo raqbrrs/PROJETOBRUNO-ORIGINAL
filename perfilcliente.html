@@ -12,9 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="img/logo.png">
 
-
     <style>
-
         /* ===== VARIÁVEIS E RESET ===== */
         :root {
             --primary-color: #1a73e8;
@@ -277,11 +275,11 @@
 
         .profile-menu-item {
             margin-bottom: 1rem;
-            margin-left: 20px;
         }
 
         .profile-menu-link {
-            display: block;
+            display: flex;
+            align-items: center;
             padding: 0.8rem 1rem;
             border-radius: 8px;
             font-weight: 500;
@@ -294,9 +292,10 @@
         }
 
         .profile-menu-link i {
-            margin-right: 0.8rem;
-            width: 20px;
+            width: 24px;
             text-align: center;
+            margin-right: 0.8rem;
+            font-size: 1rem;
         }
 
         .profile-content {
@@ -318,6 +317,7 @@
             margin-bottom: 1.5rem;
             padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--border-color);
+        
         }
 
         .profile-info-label {
@@ -397,7 +397,6 @@
             gap: 0.5rem;
         }
 
-        
         .action-btn {
             padding: 0.5rem 1rem;
             border-radius: 5px;
@@ -446,6 +445,101 @@
             gap: 1rem;
             margin-top: 1rem;
         }
+
+        /* ===== RODAPÉ ===== */
+        .footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo i {
+            margin-right: 0.5rem;
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            color: white;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-link {
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+        }
+
+    
 
         /* ===== RESPONSIVO ===== */
         @media (max-width: 992px) {
@@ -514,125 +608,24 @@
             .form-actions .btn {
                 width: 100%;
             }
-        }
-        .footer-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-            color: white;
-        }
 
-        .footer-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--primary-color);
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-link {
-            opacity: 0.8;
-            transition: var(--transition);
-        }
-
-        .footer-link:hover {
-            opacity: 1;
-            color: var(--white);
-            padding-left: 5px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.8;
-        }
-
-          .footer {
-            background-color: var(--primary-dark);
-            color: var(--white);
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .footer-logo i {
-            margin-right: 0.5rem;
-        }
-
-        .footer-text {
-            opacity: 0.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-         @media (max-width: 576px) {
             .hero-title {
                 font-size: 2rem;
-            }
-
-            .section {
-                padding: 3rem 0;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr;
             }
-
         }
-          @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
 
-
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 
 <body>
-
-
     <!-- Cabeçalho -->
     <header class="header" id="header">
         <div class="container">
@@ -659,7 +652,6 @@
     </header>
 
     <!-- Seção Perfil -->
-
     <section class="section profile-section">
         <div class="container">
             <div class="profile-container">
@@ -681,7 +673,7 @@
                             </a>
                         </li>
                         <li class="profile-menu-item">
-                            <a href="historicomedico.html" >
+                            <a href="historicomedico.html" class="profile-menu-link">
                                 <i class="fas fa-file-medical"></i> Histórico Médico
                             </a>
                         </li>
@@ -702,7 +694,6 @@
                             <i class="fas fa-edit"></i> Editar
                         </button>
                     </div>
-
 
                     <div class="profile-info" id="profileInfo">
                         <div class="profile-info-item">
@@ -764,7 +755,7 @@
                     </form>
                     
                     <!-- Seção de Agendamentos (inicialmente oculta) -->
-                <div id="appointmentsSection" style="display: none;">
+                    <div id="appointmentsSection" style="display: none;">
                         <h2>Seus Agendamentos</h2>
                         <p>Veja e gerencie seus próximos agendamentos.</p>
 
@@ -813,9 +804,8 @@
         </div>
     </section>
     
-
     <!-- Rodapé -->
-     <footer class="footer" id="contact">
+    <footer class="footer" id="contact">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
@@ -867,9 +857,7 @@
         </div>
     </footer>
 
-
     <script>
-
         // Menu Mobile
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navList = document.getElementById('navList');
@@ -883,28 +871,29 @@
         
         profileMenuLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                // Remove a classe active de todos os links
-                profileMenuLinks.forEach(item => {
-                    item.classList.remove('active');
-                });
-                
-                // Adiciona a classe active apenas no link clicado
-                link.classList.add('active');
-                
-                // Mostra a seção correspondente
-                const target = link.getAttribute('href').substring(1);
-                if (target === 'info') {
-                    document.getElementById('profileInfo').style.display = 'block';
-                    document.getElementById('editProfileForm').style.display = 'none';
-                    document.getElementById('appointmentsSection').style.display = 'none';
-                } else if (target === 'appointments') {
-                    document.getElementById('profileInfo').style.display = 'none';
-                    document.getElementById('editProfileForm').style.display = 'none';
-                    document.getElementById('appointmentsSection').style.display = 'block';
+                if(link.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    
+                    // Remove a classe active de todos os links
+                    profileMenuLinks.forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Adiciona a classe active apenas no link clicado
+                    link.classList.add('active');
+                    
+                    // Mostra a seção correspondente
+                    const target = link.getAttribute('href').substring(1);
+                    if (target === 'info') {
+                        document.getElementById('profileInfo').style.display = 'block';
+                        document.getElementById('editProfileForm').style.display = 'none';
+                        document.getElementById('appointmentsSection').style.display = 'none';
+                    } else if (target === 'appointments') {
+                        document.getElementById('profileInfo').style.display = 'none';
+                        document.getElementById('editProfileForm').style.display = 'none';
+                        document.getElementById('appointmentsSection').style.display = 'block';
+                    }
                 }
-                // Adicionar lógica para outras seções conforme necessário
             });
         });
 
@@ -1011,10 +1000,6 @@
                 header.classList.remove('scrolled');
             }
         });
-
-        
     </script>
-    
 </body>
-
 </html>
