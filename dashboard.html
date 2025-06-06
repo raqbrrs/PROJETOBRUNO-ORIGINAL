@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="icon" href="img/logo.png">
     <style>
         /* ===== VARIÁVEIS E RESET ===== */
         :root {
@@ -221,22 +222,21 @@
         }
 
         /* ===== HERO SECTION ===== */
-        
-          .hero {
-        height: 100vh;
-        min-height: 600px;
-        background: 
-            linear-gradient(rgba(26, 115, 232, 0.7), 
-            rgba(0, 0, 0, 0.3)),
-            url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') 
-            no-repeat center center/cover;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        color: var(--white);
-        padding-top: 80px;
-        position: relative;
-    }
+
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background:
+                linear-gradient(rgba(26, 115, 232, 0.7),
+                    rgba(0, 0, 0, 0.3)),
+                url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+            position: relative;
+        }
 
         .hero-content {
             max-width: 800px;
@@ -544,33 +544,36 @@
             }
 
         }
-          @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
 
-    .hero-content {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-        animation: fadeIn 1.5s ease;
-        position: relative;
-        z-index: 2;
-    }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
 
-       .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.3);
-        z-index: 1;
-    }
+            to {
+                opacity: 1;
+            }
+        }
 
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            animation: fadeIn 1.5s ease;
+            position: relative;
+            z-index: 2;
+        }
 
-
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
     </style>
 </head>
 
@@ -590,6 +593,7 @@
                     <li><a href="#appointment" class="nav-link">Agendamento</a></li>
                     <li><a href="contato.html" class="nav-link">Contato</a></li>
                     <li><a href="sobrenos.html" class="nav-link">Sobre nós</a></li>
+                    <li><a href="perfilcliente.html" class="nav-link active"><i class="fas fa-user"></i></a></li>
 
                 </ul>
 
@@ -733,8 +737,7 @@
         <div class="container">
             <div class="appointment-container">
                 <div class="appointment-image">
-                    <img src="C:\Users\Aluno\Documents\projeto bruno\RAQUEL BARROS\img\dentista.png"
-                        alt="dentista atendendo paciente">
+                    <img src="img/dentistaagendamento.png.png" alt="dentista atendendo paciente">
                 </div>
 
                 <div class="appointment-form">
@@ -743,72 +746,77 @@
                     <p>Preencha o formulário abaixo e entraremos em contato para confirmar seu agendamento.</p>
 
                     <!-- Na seção de agendamento, substitua o formulário por: -->
-                    <form id="appointmentForm">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Nome Completo</label>
-                            <input type="text" id="name" class="form-control" placeholder="Seu nome" required>
+                    
+                                <!-- Na seção de agendamento, substitua o formulário por: -->
+                                    <form id="appointmentForm">
+                                        <div class="form-group">
+                                            <label for="name" class="form-label">Nome Completo</label>
+                                            <input type="text" id="name" class="form-control" placeholder="Seu nome"
+                                                required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="phone" class="form-label">Telefone</label>
+                                            <input type="tel" id="phone" class="form-control"
+                                                placeholder="(00) 00000-0000" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="service" class="form-label">Serviço Desejado</label>
+                                            <select id="service" class="form-control" required>
+                                                <option value="">Selecione um serviço</option>
+                                                <option value="Consulta Geral">Consulta Geral</option>
+                                                <option value="Clareamento Dental">Clareamento Dental</option>
+                                                <option value="Ortodontia">Ortodontia</option>
+                                                <option value="Implante Dentário">Implante Dentário</option>
+                                                <option value="Limpeza Profissional">Limpeza Profissional</option>
+                                                <option value="Próteses Dentárias">Próteses Dentárias</option>
+                                                <option value="Facetas de Porcelana">Facetas de Porcelana</option>
+                                                <option value="Endodontia (Canal)">Endodontia (Canal)</option>
+                                                <option value="Odontopediatria">Odontopediatria</option>
+                                                <option value="Dentística Restauradora">Dentística Restauradora</option>
+                                                <option value="Periodontia">Periodontia</option>
+                                                <option value="Cirurgia Oral">Cirurgia Oral</option>
+                                                <option value="Aplicação de Botox">Aplicação de Botox</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="date" class="form-label">Data Preferencial</label>
+                                            <input type="date" id="date" class="form-control" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="time" class="form-label">Horário Preferencial</label>
+                                            <select id="time" class="form-control" required>
+                                                <option value="">Selecione um horário</option>
+                                                <option value="08:00">08:00</option>
+                                                <option value="09:00">09:00</option>
+                                                <option value="10:00">10:00</option>
+                                                <option value="13:00">13:00</option>
+                                                <option value="14:00">14:00</option>
+                                                <option value="15:00">15:00</option>
+                                                <option value="16:00">16:00</option>
+                                                <option value="17:00">17:00</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="message" class="form-label">Mensagem (Opcional)</label>
+                                            <textarea id="message" class="form-control"
+                                                placeholder="Alguma observação importante..."></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <button type="submit" class="btn">Solicitar Agendamento</button>
+                                        </div>
+                                    </form>
+
+
+
                         </div>
-
-                        <div class="form-group">
-                            <label for="phone" class="form-label">Telefone</label>
-                            <input type="tel" id="phone" class="form-control" placeholder="(00) 00000-0000" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="service" class="form-label">Serviço Desejado</label>
-                            <select id="service" class="form-control" required>
-                                <option value="">Selecione um serviço</option>
-                                <option value="Consulta Geral">Consulta Geral</option>
-                                <option value="Clareamento Dental">Clareamento Dental</option>
-                                <option value="Ortodontia">Ortodontia</option>
-                                <option value="Implante Dentário">Implante Dentário</option>
-                                <option value="Limpeza Profissional">Limpeza Profissional</option>
-                                <option value="Próteses Dentárias">Próteses Dentárias</option>
-                                <option value="Facetas de Porcelana">Facetas de Porcelana</option>
-                                <option value="Endodontia (Canal)">Endodontia (Canal)</option>
-                                <option value="Odontopediatria">Odontopediatria</option>
-                                <option value="Dentística Restauradora">Dentística Restauradora</option>
-                                <option value="Periodontia">Periodontia</option>
-                                <option value="Cirurgia Oral">Cirurgia Oral</option>
-                                <option value="Aplicação de Botox">Aplicação de Botox</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="date" class="form-label">Data Preferencial</label>
-                            <input type="date" id="date" class="form-control" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="time" class="form-label">Horário Preferencial</label>
-                            <select id="time" class="form-control" required>
-                                <option value="">Selecione um horário</option>
-                                <option value="08:00">08:00</option>
-                                <option value="09:00">09:00</option>
-                                <option value="10:00">10:00</option>
-                                <option value="13:00">13:00</option>
-                                <option value="14:00">14:00</option>
-                                <option value="15:00">15:00</option>
-                                <option value="16:00">16:00</option>
-                                <option value="17:00">17:00</option>
-                                <!-- Adicione mais horários conforme necessário -->
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message" class="form-label">Mensagem (Opcional)</label>
-                            <textarea id="message" class="form-control"
-                                placeholder="Alguma observação importante..."></textarea>
-                        </div>
-
-                    </form>
-                    <div class="form-group">
-                        <a href="agendamento.html"> <button type="submit" class="btn">Solicitar Agendamento</button></a>
-                    </div>
-
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- Rodapé -->
@@ -820,7 +828,7 @@
                         <i class="fas fa-tooth"></i>
                         OdontoLux
                     </div>
-                    <p class="footer-text">Cuidando do seu sorriso com excelência e tecnologia desde 2010.</p>
+                    <p class="footer-text">Cuidando do seu sorriso com excelência e tecnologia desde 2020.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
@@ -831,11 +839,11 @@
                 <div class="footer-col">
                     <h3 class="footer-title"></h3>
                     <ul class="footer-links">
-                        <li><a href="#home" class="footer-link">Início</a></li>
-                        <li><a href="#services" class="footer-link">Serviços</a></li>
-                        <li><a href="#appointment" class="footer-link">Agendamento</a></li>
-                        <li><a href="#contact" class="footer-link">Contato</a></li>
-                        <li><a href="#sobre" class="footer-link">Sobre nós</a></li>
+                        <li><a href="dashboard.html" class="footer-link">Início</a></li>
+                        <li><a href="dashboard.html" class="footer-link">Serviços</a></li>
+                        <li><a href="dashboard.html" class="footer-link">Agendamento</a></li>
+                        <li><a href="contato.html" class="footer-link">Contato</a></li>
+                        <li><a href="sobrenos.html" class="footer-link">Sobre nós</a></li>
                     </ul>
                 </div>
 
@@ -859,103 +867,102 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 OdontoLux. Todos os direitos reservados.</p>
+                <p>&copy; 2025 OdontoLux. Todos os direitos reservados</p>
             </div>
         </div>
     </footer>
-
-    <script>
-        // Sistema de Agendamento com localStorage
-        const AppointmentSystem = {
-            init: function () {
-                if (!localStorage.getItem('odontolux_agendamentos')) {
-                    localStorage.setItem('odontolux_agendamentos', JSON.stringify([]));
-                }
-            },
-
-            agendar: function (dados) {
-                const agendamentos = this.obterTodos();
-                const novoAgendamento = {
-                    id: Date.now(),
-                    nome: dados.nome,
-                    telefone: dados.telefone,
-                    servico: dados.servico,
-                    data: dados.data,
-                    horario: dados.horario,
-                    mensagem: dados.mensagem || '',
-                    status: 'pendente',
-                    dataCriacao: new Date().toISOString()
-                };
-
-                agendamentos.push(novoAgendamento);
-                localStorage.setItem('odontolux_agendamentos', JSON.stringify(agendamentos));
-
-                return novoAgendamento;
-            },
-
-            obterTodos: function () {
-                return JSON.parse(localStorage.getItem('odontolux_agendamentos'));
-            },
-
-            obterPorId: function (id) {
-                const agendamentos = this.obterTodos();
-                return agendamentos.find(ag => ag.id === id);
+<script>
+    // Sistema de Agendamento com localStorage
+    const AppointmentSystem = {
+        init: function() {
+            if (!localStorage.getItem('odontolux_agendamentos')) {
+                localStorage.setItem('odontolux_agendamentos', JSON.stringify([]));
             }
-        };
+        },
 
-        // Inicializar o sistema
-        AppointmentSystem.init();
-
-        // Manipular envio do formulário
-        document.getElementById('appointmentForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Coletar dados do formulário
-            const dadosAgendamento = {
-                nome: document.getElementById('name').value,
-                telefone: document.getElementById('phone').value,
-                servico: document.getElementById('service').value,
-                data: document.getElementById('date').value,
-                horario: document.getElementById('time').value,
-                mensagem: document.getElementById('message').value
+        agendar: function(dados) {
+            const agendamentos = this.obterTodos();
+            const novoAgendamento = {
+                id: Date.now(),
+                nome: dados.nome,
+                telefone: dados.telefone,
+                servico: dados.servico,
+                data: dados.data,
+                horario: dados.horario,
+                mensagem: dados.mensagem || '',
+                status: 'pendente',
+                dataCriacao: new Date().toISOString()
             };
 
-            // Validar dados
-            if (!dadosAgendamento.nome || !dadosAgendamento.telefone || !dadosAgendamento.servico ||
-                !dadosAgendamento.data || !dadosAgendamento.horario) {
-                alert('Por favor, preencha todos os campos obrigatórios!');
-                return;
-            }
+            agendamentos.push(novoAgendamento);
+            localStorage.setItem('odontolux_agendamentos', JSON.stringify(agendamentos));
 
-            // Salvar agendamento
-            const agendamento = AppointmentSystem.agendar(dadosAgendamento);
+            return novoAgendamento;
+        },
 
-            // Redirecionar para página de confirmação
-            window.location.href = `agendamento.html?id=${agendamento.id}`;
-        });
+        obterTodos: function() {
+            return JSON.parse(localStorage.getItem('odontolux_agendamentos'));
+        },
 
-        // Máscara para telefone (mantida do seu código original)
-        const phoneInput = document.getElementById('phone');
-        phoneInput.addEventListener('input', (e) => {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 11) value = value.substring(0, 11);
+        obterPorId: function(id) {
+            const agendamentos = this.obterTodos();
+            return agendamentos.find(ag => ag.id === id);
+        }
+    };
 
-            if (value.length > 0) {
-                value = value.replace(/^(\d{0,2})(\d{0,5})(\d{0,4})/, function (match, g1, g2, g3) {
-                    let result = '';
-                    if (g1) result += `(${g1}`;
-                    if (g2) result += `) ${g2}`;
-                    if (g3) result += `-${g3}`;
-                    return result;
-                });
-            }
+    // Inicializar o sistema
+    AppointmentSystem.init();
 
-            e.target.value = value;
-        });
+    // Manipular envio do formulário
+    document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
 
-        // Restante do seu script original (menu mobile, scroll, etc.)
-        // ... (mantenha todo o restante do seu JavaScript existente)
-    </script>
+        // Coletar dados do formulário
+        const dadosAgendamento = {
+            nome: document.getElementById('name').value,
+            telefone: document.getElementById('phone').value,
+            servico: document.getElementById('service').value,
+            data: document.getElementById('date').value,
+            horario: document.getElementById('time').value,
+            mensagem: document.getElementById('message').value
+        };
+
+        // Validar dados
+        if (!dadosAgendamento.nome || !dadosAgendamento.telefone || !dadosAgendamento.servico || 
+            !dadosAgendamento.data || !dadosAgendamento.horario) {
+            alert('Por favor, preencha todos os campos obrigatórios!');
+            return;
+        }
+
+        // Salvar agendamento
+        const agendamento = AppointmentSystem.agendar(dadosAgendamento);
+
+        // Redirecionar para página de confirmação
+        window.location.href = `agendamento.html?id=${agendamento.id}`;
+    });
+
+    // Máscara para telefone
+    const phoneInput = document.getElementById('phone');
+    phoneInput.addEventListener('input', (e) => {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 11) value = value.substring(0, 11);
+
+        if (value.length > 0) {
+            value = value.replace(/^(\d{0,2})(\d{0,5})(\d{0,4})/, function(match, g1, g2, g3) {
+                let result = '';
+                if (g1) result += `(${g1}`;
+                if (g2) result += `) ${g2}`;
+                if (g3) result += `-${g3}`;
+                return result;
+            });
+        }
+
+        e.target.value = value;
+    });
+
+    // Restante do seu script original (menu mobile, scroll, etc.)
+    // ... (mantenha todo o restante do seu JavaScript existente)
+</script>
 </body>
 
 </html>
