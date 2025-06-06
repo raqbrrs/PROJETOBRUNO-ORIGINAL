@@ -556,36 +556,38 @@
     </section>
 
     <!-- Seção Confirmação -->
-    <section class="section confirmation">
-        <div class="container">
-            <div class="confirmation-icon">
-                <i class="fas fa-calendar-check"></i>
-            </div>
-            <h2>Obrigado por agendar conosco!</h2>
-            <p>Você receberá um e-mail e SMS com os detalhes da sua consulta.</p>
-            
-            <div class="confirmation-details">
-                <div class="detail-item">
-                    <span class="detail-label">Nome:</span>
-                    <span id="confirm-name">Carlos Silva</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Serviço:</span>
-                    <span id="confirm-service">Consulta Geral</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Data:</span>
-                    <span id="confirm-date">15/11/2023 - 14:30</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Local:</span>
-                    <span>OdontoLux - Ceará, Clínica 1</span>
-                </div>
-            </div>
-            
-            <a href="dashboard.html" class="btn">Voltar à Página Inicial</a>
+ <!-- Seção Confirmação -->
+<section class="section confirmation">
+    <div class="container">
+        <div class="confirmation-icon">
+            <i class="fas fa-calendar-check"></i>
         </div>
-    </section>
+        <h2>Obrigado por agendar conosco!</h2>
+        <p>Você receberá um e-mail e SMS com os detalhes da sua consulta.</p>
+        
+        <div class="confirmation-details">
+            <div class="detail-item">
+                <span class="detail-label">Nome:</span>
+                <span id="confirm-name"></span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Serviço:</span>
+                <span id="confirm-service"></span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Data:</span>
+                <span id="confirm-date"></span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Local:</span>
+                <span>OdontoLux - Ceará, Clínica 1</span>
+            </div>
+            <!-- A mensagem será adicionada dinamicamente pelo JavaScript se existir -->
+        </div>
+        
+        <a href="dashboard.html" class="btn">Voltar à Página Inicial</a>
+    </div>
+</section>
 
     <!-- Seção Calendário -->
     <section class="section calendar">
@@ -674,130 +676,81 @@
     </footer>
 
     <script>
-        // Menu Mobile
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navList = document.getElementById('navList');
+    // Obter o ID do agendamento da URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const appointmentId = urlParams.get('id');
 
-        mobileMenuBtn.addEventListener('click', () => {
-            navList.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navList.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
+    // Função para formatar a data
+    function formatarData(dataISO) {
+        const data = new Date(dataISO);
+        return data.toLocaleDateString('pt-BR');
+    }
 
-        // Fechar menu ao clicar em um link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navList.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-
-        // Header scroll effect
-        const header = document.getElementById('header');
+    // Função para carregar os dados do agendamento
+    function carregarAgendamento() {
+        // Obter todos os agendamentos do localStorage
+        const agendamentos = JSON.parse(localStorage.getItem('odontolux_agendamentos')) || [];
         
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Pegar dados da URL (simulação)
-        const urlParams = new URLSearchParams(window.location.search);
-        const name = urlParams.get('name') || 'Carlos Silva';
-        const service = urlParams.get('service') || 'Consulta Geral';
-        const date = urlParams.get('date') || '15/11/2023 - 14:30';
-
-        // Preencher detalhes da confirmação
-        document.getElementById('confirm-name').textContent = name;
-        document.getElementById('confirm-service').textContent = service;
-        document.getElementById('confirm-date').textContent = date;
-
-        // Calendário
-        let currentDate = new Date();
-        let currentMonth = currentDate.getMonth();
-        let currentYear = currentDate.getFullYear();
-
-        function renderCalendar(month, year) {
-            const calendarDays = document.getElementById('calendar-days');
-            calendarDays.innerHTML = '';
+        // Encontrar o agendamento com o ID correspondente
+        const agendamento = agendamentos.find(ag => ag.id.toString() === appointmentId);
+        
+        if (agendamento) {
+            // Preencher os detalhes na página
+            document.getElementById('confirm-name').textContent = agendamento.nome;
+            document.getElementById('confirm-service').textContent = agendamento.servico;
+            document.getElementById('confirm-date').textContent = `${formatarData(agendamento.data)} - ${agendamento.horario}`;
             
-            const firstDay = new Date(year, month, 1);
-            const lastDay = new Date(year, month + 1, 0);
-            const daysInMonth = lastDay.getDate();
-            const startingDay = firstDay.getDay();
-            
-            // Dias do mês anterior
-            const prevMonthLastDay = new Date(year, month, 0).getDate();
-            for (let i = 0; i < startingDay; i++) {
-                const dayElement = document.createElement('div');
-                dayElement.className = 'calendar-day other-month';
-                dayElement.innerHTML = `<div class="day-number">${prevMonthLastDay - startingDay + i + 1}</div>`;
-                calendarDays.appendChild(dayElement);
+            // Se houver mensagem, exibir
+            if (agendamento.mensagem) {
+                const mensagemItem = document.createElement('div');
+                mensagemItem.className = 'detail-item';
+                mensagemItem.innerHTML = `
+                    <span class="detail-label">Mensagem:</span>
+                    <span>${agendamento.mensagem}</span>
+                `;
+                document.querySelector('.confirmation-details').appendChild(mensagemItem);
             }
             
-            // Dias do mês atual
-            const today = new Date();
-            for (let i = 1; i <= daysInMonth; i++) {
-                const dayElement = document.createElement('div');
-                const isToday = i === today.getDate() && month === today.getMonth() && year === today.getFullYear();
-                dayElement.className = `calendar-day ${isToday ? 'today' : ''}`;
-                
-                let appointmentsHTML = '';
-                
-                // Exemplo de consultas agendadas
-                if (i === 15 && month === 10) { // 15 de novembro (mês 10)
-                    appointmentsHTML = '<div class="appointment-badge">14:30 - Carlos</div>';
-                }
-                if (i === 18 && month === 10) {
-                    appointmentsHTML = '<div class="appointment-badge">10:00 - Ana</div><div class="appointment-badge">16:00 - Marcos</div>';
-                }
-                if (i === 22 && month === 10) {
-                    appointmentsHTML = '<div class="appointment-badge">09:00 - Juliana</div><div class="appointment-badge">11:30 - Roberto</div>';
-                }
-                
-                dayElement.innerHTML = `<div class="day-number">${i}</div>${appointmentsHTML}`;
-                calendarDays.appendChild(dayElement);
-            }
-            
-            // Dias do próximo mês
-            const daysToShow = 42 - (startingDay + daysInMonth); // 6 semanas
-            for (let i = 1; i <= daysToShow; i++) {
-                const dayElement = document.createElement('div');
-                dayElement.className = 'calendar-day other-month';
-                dayElement.innerHTML = `<div class="day-number">${i}</div>`;
-                calendarDays.appendChild(dayElement);
-            }
-            
-            // Atualizar título do mês
-            const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
-                                "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-            document.querySelector('.calendar-title').textContent = `${monthNames[month]} ${year}`;
+            // Adicionar ao calendário
+            adicionarAoCalendario(agendamento);
+        } else {
+            // Se não encontrar o agendamento, redirecionar
+            window.location.href = 'index.html';
         }
+    }
+
+    // Função para adicionar o agendamento ao calendário
+    function adicionarAoCalendario(agendamento) {
+        const dataAgendamento = new Date(agendamento.data);
+        const mesAgendamento = dataAgendamento.getMonth();
+        const anoAgendamento = dataAgendamento.getFullYear();
+        const diaAgendamento = dataAgendamento.getDate();
         
-        // Navegação do calendário
-        document.getElementById('prev-month').addEventListener('click', () => {
-            currentMonth--;
-            if (currentMonth < 0) {
-                currentMonth = 11;
-                currentYear--;
-            }
-            renderCalendar(currentMonth, currentYear);
-        });
-        
-        document.getElementById('next-month').addEventListener('click', () => {
-            currentMonth++;
-            if (currentMonth > 11) {
-                currentMonth = 0;
-                currentYear++;
-            }
-            renderCalendar(currentMonth, currentYear);
-        });
-        
-        // Renderizar calendário inicial
-        renderCalendar(currentDate.getMonth(), currentDate.getFullYear());
-    </script>
+        // Se for o mês atual, marcar no calendário
+        if (mesAgendamento === currentMonth && anoAgendamento === currentYear) {
+            const dias = document.querySelectorAll('.calendar-day:not(.other-month)');
+            dias.forEach(dia => {
+                if (parseInt(dia.querySelector('.day-number').textContent) === diaAgendamento) {
+                    const badge = document.createElement('div');
+                    badge.className = 'appointment-badge';
+                    badge.textContent = `${agendamento.horario} - ${agendamento.nome.split(' ')[0]}`;
+                    dia.appendChild(badge);
+                }
+            });
+        }
+    }
+
+    // Carregar o agendamento quando a página carregar
+    window.addEventListener('DOMContentLoaded', () => {
+        if (appointmentId) {
+            carregarAgendamento();
+        } else {
+            window.location.href = 'index.html';
+        }
+    });
+
+    // Restante do seu código do calendário...
+    // ... (mantenha todo o restante do seu JavaScript existente na página de agendamento)
+</script>
 </body>
 </html>
