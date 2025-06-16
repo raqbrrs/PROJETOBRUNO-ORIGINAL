@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="icon" href="img/logo.png">
 
     <style>
@@ -43,7 +44,10 @@
         }
 
         /* ===== TIPOGRAFIA ===== */
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             line-height: 1.2;
             margin-bottom: 1rem;
             color: var(--primary-dark);
@@ -286,7 +290,8 @@
             transition: var(--transition);
         }
 
-        .profile-menu-link:hover, .profile-menu-link.active {
+        .profile-menu-link:hover,
+        .profile-menu-link.active {
             background-color: var(--primary-color);
             color: var(--white);
         }
@@ -317,7 +322,7 @@
             margin-bottom: 1.5rem;
             padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--border-color);
-        
+
         }
 
         .profile-info-label {
@@ -539,7 +544,7 @@
             opacity: 0.8;
         }
 
-    
+
 
         /* ===== RESPONSIVO ===== */
         @media (max-width: 992px) {
@@ -619,8 +624,13 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -657,7 +667,8 @@
             <div class="profile-container">
                 <!-- Sidebar do Perfil -->
                 <div class="profile-sidebar">
-                    <img src="https://st4.depositphotos.com/11574170/25191/v/450/depositphotos_251916955-stock-illustration-user-glyph-color-icon.jpg" alt="Foto do perfil" class="profile-avatar">
+                    <img src="https://st4.depositphotos.com/11574170/25191/v/450/depositphotos_251916955-stock-illustration-user-glyph-color-icon.jpg"
+                        alt="Foto do perfil" class="profile-avatar">
                     <h3 class="profile-name">Carlos Silva</h3>
                     <p class="profile-email">carlossilva@example.com</p>
 
@@ -677,9 +688,9 @@
                                 <i class="fas fa-file-medical"></i> Histórico Médico
                             </a>
                         </li>
-                    
+
                         <li class="profile-menu-item">
-                            <a href="index.html" class="profile-menu-link" id="logoutBtn">
+                            <a href="TENTATIVADELANDINGPAGE.HTML" class="profile-menu-link" id="logoutBtn">
                                 <i class="fas fa-sign-out-alt"></i> Sair
                             </a>
                         </li>
@@ -746,14 +757,15 @@
                         </div>
                         <div class="form-group">
                             <label for="address" class="form-label">Endereço</label>
-                            <textarea id="address" class="form-control">Rua Exemplo, 123 - Centro, Fortaleza/CE</textarea>
+                            <textarea id="address"
+                                class="form-control">Rua Exemplo, 123 - Centro, Fortaleza/CE</textarea>
                         </div>
                         <div class="form-actions">
                             <button type="submit" class="btn">Salvar Alterações</button>
                             <button type="button" class="btn btn-outline" id="cancelEditBtn">Cancelar</button>
                         </div>
                     </form>
-                    
+
                     <!-- Seção de Agendamentos (inicialmente oculta) -->
                     <div id="appointmentsSection" style="display: none;">
                         <h2>Seus Agendamentos</h2>
@@ -803,7 +815,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Rodapé -->
     <footer class="footer" id="contact">
         <div class="container">
@@ -868,20 +880,20 @@
 
         // Navegação do perfil
         const profileMenuLinks = document.querySelectorAll('.profile-menu-link');
-        
+
         profileMenuLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                if(link.getAttribute('href').startsWith('#')) {
+                if (link.getAttribute('href').startsWith('#')) {
                     e.preventDefault();
-                    
+
                     // Remove a classe active de todos os links
                     profileMenuLinks.forEach(item => {
                         item.classList.remove('active');
                     });
-                    
+
                     // Adiciona a classe active apenas no link clicado
                     link.classList.add('active');
-                    
+
                     // Mostra a seção correspondente
                     const target = link.getAttribute('href').substring(1);
                     if (target === 'info') {
@@ -916,18 +928,18 @@
         // Envio do formulário de edição
         editProfileForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
+
             // Aqui você adicionaria a lógica para salvar as alterações
             // Por exemplo, enviar para um servidor ou atualizar localStorage
-            
+
             alert('Perfil atualizado com sucesso!');
             profileInfo.style.display = 'block';
             editProfileForm.style.display = 'none';
-            
+
             // Atualizar os dados exibidos (simulação)
             document.querySelector('.profile-name').textContent = document.getElementById('fullName').value;
             document.querySelector('.profile-email').textContent = document.getElementById('email').value;
-            
+
             // Atualizar outras informações conforme necessário
         });
 
@@ -938,7 +950,7 @@
             if (value.length > 11) value = value.substring(0, 11);
 
             if (value.length > 0) {
-                value = value.replace(/^(\d{0,2})(\d{0,5})(\d{0,4})/, function(match, g1, g2, g3) {
+                value = value.replace(/^(\d{0,2})(\d{0,5})(\d{0,4})/, function (match, g1, g2, g3) {
                     let result = '';
                     if (g1) result += `(${g1}`;
                     if (g2) result += `) ${g2}`;
@@ -957,7 +969,7 @@
             if (value.length > 11) value = value.substring(0, 11);
 
             if (value.length > 0) {
-                value = value.replace(/^(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2})/, function(match, g1, g2, g3, g4) {
+                value = value.replace(/^(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2})/, function (match, g1, g2, g3, g4) {
                     let result = '';
                     if (g1) result += `${g1}`;
                     if (g2) result += `.${g2}`;
@@ -971,19 +983,20 @@
         });
 
         // Logout
+        // Logout
         const logoutBtn = document.getElementById('logoutBtn');
         logoutBtn.addEventListener('click', (e) => {
             e.preventDefault();
             if (confirm('Tem certeza que deseja sair?')) {
                 // Aqui você adicionaria a lógica para limpar a sessão do usuário
                 // Por exemplo: localStorage.removeItem('userToken');
-                window.location.href = 'index.html';
+                window.location.href = 'TENTATIVADELANDINGPAGE.HTML';
             }
         });
 
         // Scroll suave para links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
@@ -1002,4 +1015,5 @@
         });
     </script>
 </body>
+
 </html>
