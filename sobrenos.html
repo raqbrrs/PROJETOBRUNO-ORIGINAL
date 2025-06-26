@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="icon" href="img/logo.png">
+
     <style>
         /* ===== VARIÁVEIS E RESET ===== */
         :root {
@@ -316,6 +317,8 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             text-align: center;
+            
+            
         }
 
         .team-card:hover {
@@ -326,6 +329,8 @@
             width: 100%;
             height: 250px;
             overflow: hidden;
+            justify-content: center;
+            
         }
 
         .team-image img {
@@ -584,6 +589,7 @@
                     <li><a href="dashboard.html" class="nav-link">Agendamento</a></li>
                     <li><a href="dashboard.html" class="nav-link">Contato</a></li>
                     <li><a href="sobrenos.html" class="nav-link active">Sobre nós</a></li>
+                      <li><a href="perfilcliente.html" class="nav-link active"><i class="fas fa-user"></i></a></li>
                 </ul>
 
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -674,79 +680,125 @@
     </section>
 
     <!-- Seção Equipe -->
-    <section class="section team">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nossa Equipe</h2>
-                <p>Profissionais altamente qualificados para cuidar do seu sorriso</p>
+  
+<!-- Seção Equipe -->
+<section class="section team">
+    <div class="container">
+        <div class="section-title">
+            <h2>Nossa Equipe</h2>
+            <p>Profissionais altamente qualificados para cuidar do seu sorriso</p>
+        </div>
+        
+        <div class="team-grid">
+            <!-- Primeira linha com 4 cards -->
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="img/DOUTORMARCELO (1).png" alt="Dr. Marcelo Silva">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Marcelo Silva</h3>
+                    <p>Cirurgião Dentista - FOR/CE 3454</p>
+                    <p>Especialista em Implantodontia</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
             </div>
             
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="C:\Users\Aluno\Documents\projeto bruno\RAQUEL BARROS\img\DOUTORMARCELO (1).png" alt="Dr. Marcelo Silva">
-                    </div>
-                    <div class="team-info">
-                        <h3>Dr. Marcelo Silva</h3>
-                        <p>Cirurgião Dentista - FOR/CE 3454</p>
-                        <p>Especialista em Implantodontia</p>
-                        <div class="team-social">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="img/DOUTORPAULO.png" alt="Dr. Paulo Santos">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Paulo Santos</h3>
+                    <p>Cirurgião Dentista - TGA/CE 54321</p>
+                    <p>Especialista em Ortodontia</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="C:\Users\Aluno\Documents\projeto bruno\RAQUEL BARROS\img\DOUTORPAULO.png" alt="Dr. PAULO">
-                    </div>
-                    <div class="team-info">
-                        <h3>Dr. Paulo Santos</h3>
-                        <p>Cirurgiã Dentista - TGA/CE 54321</p>
-                        <p>Especialista em Ortodontia</p>
-                        <div class="team-social">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="img/DRARENATA.png" alt="Dra. Renata Lima">
+                </div>
+                <div class="team-info">
+                    <h3>Dra. Renata Lima</h3>
+                    <p>Cirurgiã Dentista - CE 67890</p>
+                    <p>Especialista em Periodontia</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="C:\Users\Aluno\Documents\projeto bruno\RAQUEL BARROS\img\DRARENATA.png" alt="Dr. Marcos Santos">
-                    </div>
-                    <div class="team-info">
-                        <h3>Dra. Renata Lima</h3>
-                        <p>Cirurgiã Dentista - CE 67890</p>
-                        <p>Especialista em Periodontia</p>
-                        <div class="team-social">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=800&q=80" alt="Dra. Juliana Costa">
                 </div>
-                
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=800&q=80" alt="Dra. Juliana Costa">
-                    </div>
-                    <div class="team-info">
-                        <h3>Dra. Juliana Costa</h3>
-                        <p>Cirurgiã Dentista - SOBRAL/CE 09876</p>
-                        <p>Especialista em Dentística</p>
-                        <div class="team-social">
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fas fa-envelope"></i></a>
-                        </div>
+                <div class="team-info">
+                    <h3>Dra. Juliana Costa</h3>
+                    <p>Cirurgiã Dentista - SOBRAL/CE 09876</p>
+                    <p>Especialista em Dentística</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <br>
+        <!-- Segunda linha com 2 cards centralizados -->
+        <div class="team-grid" style="max-width: 600px; margin: 0 auto;">
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="img/DOUTOR EDILSON.png" alt="Dr. Edilson Moraes">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Edilson Mendes</h3>
+                    <p>Cirurgião Dentista - FOR/CE 44556</p>
+                    <p>Especialista em Cirurgia Bucomaxilofacial</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="img/DRACAROLINA.png" alt="Dra. Carolina Ximenes">
+                </div>
+                <div class="team-info">
+                    <h3>Dra. Carolina Ximenes</h3>
+                    <p>Cirurgiã Dentista - FOR/CE 77889</p>
+                    <p>Especialista em Odontopediatria</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+           
+    </div>
+</section>
+
+
     </section>
 
     <!-- Rodapé -->
@@ -758,7 +810,7 @@
                         <i class="fas fa-tooth"></i>
                         OdontoLux
                     </div>
-                    <p class="footer-text">Cuidando do seu sorriso com excelência e tecnologia desde 2010.</p>
+                    <p class="footer-text">Cuidando do seu sorriso com excelência e tecnologia desde 2020.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
@@ -772,7 +824,7 @@
                         <li><a href="dashboard.html" class="footer-link">Início</a></li>
                         <li><a href="dashboard.html" class="footer-link">Serviços</a></li>
                         <li><a href="dashboard.html" class="footer-link">Agendamento</a></li>
-                        <li><a href="dashboard.html"footer-link">Contato</a></li>
+                        <li><a href="contato.html"class="footer-link">Contato</a></li>
                         <li><a href="sobrenos.html" class="footer-link">Sobre nós</a></li>
                     </ul>
                 </div>
@@ -797,7 +849,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 OdontoLux. Todos os direitos reservados.</p>
+                <p>&copy; 2025 OdontoLux. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>

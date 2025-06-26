@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OdontoLux - Perfil do Cliente">
+    <title>OdontoLux - Meu Perfil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="img/logo.png">
+    
+
+
+    <style>
+        /* ===== VARIÁVEIS E RESET ===== */
+        :root {
+            --primary-color: #1a73e8;
+            --primary-dark: #0d5bba;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc05;
+            --text-color: #4a4a4a;
+            --light-gray: #f5f5f5;
+            --light-blue: #e8f0fe;
+            --border-color: #e0e0e0;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== TIPOGRAFIA ===== */
+        h1,
+        h2,
+        h3,
+        h4 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ===== BOTÕES ===== */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        /* ===== LAYOUT ===== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* ===== CABEÇALHO ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            padding: 0.5rem 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            font-size: 1.8rem;
+        }
+
+        .nav-list {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            color: var(--text-color);
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* ===== PERFIL DO CLIENTE ===== */
+        .profile-section {
+            background-color: var(--white);
+            padding-top: 100px;
+        }
+
+        .profile-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+        }
+
+        .profile-sidebar {
+            background-color: var(--light-gray);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            display: block;
+            border: 5px solid var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .profile-name {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-email {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .profile-menu {
+            margin-top: 2rem;
+        }
+
+        .profile-menu-item {
+            margin-bottom: 1rem;
+        }
+
+        .profile-menu-link {
+            display: block;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .profile-menu-link:hover,
+        .profile-menu-link.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .profile-menu-link i {
+            margin-right: 0.8rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .profile-content {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .profile-content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-info-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .profile-info-label {
+            width: 200px;
+            font-weight: 500;
+            color: var(--primary-dark);
+        }
+
+        .profile-info-value {
+            flex: 1;
+        }
+
+        .edit-btn {
+            background-color: transparent;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .edit-btn i {
+            font-size: 0.9rem;
+        }
+
+        .appointments-list {
+            margin-top: 2rem;
+        }
+
+        .appointment-card {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .appointment-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .appointment-info h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .appointment-status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .status-confirmed {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .status-canceled {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .appointment-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+
+        .action-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .action-btn i {
+            margin-right: 0.3rem;
+        }
+
+        .edit-form {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 992px) {
+            .profile-container {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-sidebar {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-list {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-list.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .appointment-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .appointment-actions {
+                align-self: flex-end;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 3rem 0;
+            }
+
+            .profile-info-item {
+                flex-direction: column;
+            }
+
+            .profile-info-label {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .form-actions .btn {
+                width: 100%;
+            }
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            color: white;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-link {
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+        }
+
+        .footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo i {
+            margin-right: 0.5rem;
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Cabeçalho -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="dashboard.html" class="logo">
+                    <i class="fas fa-tooth"></i>
+                    OdontoLux
+                </a>
+
+                <ul class="nav-list" id="navList">
+                    <li><a href="dashboard.html" class="nav-link">Início</a></li>
+                    <li><a href="dashboard.html#servicos" class="nav-link">Serviços</a></li>
+                    <li><a href="dashboard.html#agendamento" class="nav-link">Agendamento</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                    <li><a href="sobrenos.html" class="nav-link">Sobre nós</a></li>
+                    <li><a href="perfilcliente.html" class="nav-link active"><i class="fas fa-user"></i></a></li>
+                </ul>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção Perfil -->
+
+    <section class="section profile-section">
+        <div class="container">
+            <div class="profile-container">
+                <!-- Sidebar do Perfil -->
+                <div class="profile-sidebar">
+                    <img src="https://st4.depositphotos.com/11574170/25191/v/450/depositphotos_251916955-stock-illustration-user-glyph-color-icon.jpg"
+                        alt="Foto do perfil" class="profile-avatar">
+                    <h3 class="profile-name">Carlos Silva</h3>
+                    <p class="profile-email">carlossilva@example.com</p>
+
+                    <ul class="profile-menu">
+                        <li class="profile-menu-item">
+                            <a href="#info" class="profile-menu-link">
+                                <i class="fas fa-user"></i> Suas Informações
+                            </a>
+                        </li>
+                        <li class="profile-menu-item">
+                            <a href="#appointments" class="profile-menu-link">
+                                <i class="fas fa-calendar-alt"></i> Seus Agendamentos
+                            </a>
+                        </li>
+                        <li class="profile-menu-item">
+                            <a href="#medical-history" class="profile-menu-link active">
+                                <i class="fas fa-file-medical"></i> Histórico Médico
+                            </a>
+                            
+                        </li>
+                     
+
+                        <li class="profile-menu-item">
+                            <a href="index.html" class="profile-menu-link" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i> Sair
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Conteúdo do Perfil -->
+                <div class="profile-content">
+                    <div class="profile-content-header">
+                        <h2>Histórico Médico</h2>
+                        <button class="edit-btn" id="editProfileBtn">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
+                    </div>
+
+
+                    <div class="profile-info" id="medicalHistoryInfo">
+                        <div class="profile-info-item">
+                            <div class="profile-info-label"> Histórico Patológico Pregresso (HPP):</div>
+                            <div class="profile-info-value"><b>Doenças:</b> Hipertensão arterial diagnosticada há 5
+                                anos, em uso irregular de medicação. <br>
+                                <b>Cirurgias:</b> Apendicectomia (retirada do apêndice) aos 25 anos.<br>
+                                <b>Internações:</b> Nenhuma além da cirurgia mencionada.<br>
+                                <b>Alergias:</b> Nega.<br>
+                                <b>Uso de medicamentos:</b> Losartana 50mg (uso irregular).
+                            </div>
+                        </div>
+                        <div class="profile-info-item">
+                            <div class="profile-info-label">Exame Físico:</div>
+                            <div class="profile-info-value">92 kg - 1,75 m - IMC: 30,0 kg/m² - Pressão arterial: 150 x
+                                95 mmHg</div>
+                        </div>
+                        <div class="profile-info-item">
+                            <div class="profile-info-label"> Revisão de Sistemas:</div>
+                            <div class="profile-info-value"><b>Cardiovascular:</b> Dor no peito aos esforços,
+                                palpitações eventuais.<br>
+                                <b>Respiratório:</b> Falta de ar leve aos esforços, sem tosse.
+                                <b>Gastrointestinal:</b> Azia frequente, principalmente à noite.
+                                <b>Neurológico:</b> Nega tonturas, desmaios ou cefaleias.
+                                <b>Genitourinário:</b> Função urinária normal.<br>
+                                <b>Endócrino:</b> Queixa de ganho de peso nos últimos anos, sede leve.
+                            </div>
+                        </div>
+                        <div class="profile-info-item">
+                            <div class="profile-info-label">Histórico Familiar (HF):</div>
+                            <div class="profile-info-value">Pai falecido aos 60 anos por infarto.<br>
+                                Mãe hipertensa e diabética.<br>
+                                Irmão com colesterol alto (dislipidemia).</div>
+                        </div>
+                        <div class="profile-info-item">
+                            <div class="profile-info-label"> Histórico Psicossocail:</div>
+                            <div class="profile-info-value"><b>Drogas ilícitas:</b> Nega.<br>
+                                <b>Atividade física:</b> Sedentário.<br>
+                                <b>Alimentação:</b> Rica em alimentos industrializados, frituras e refrigerantes, baixa
+                                ingestão de frutas e verduras.<br>
+                                <b>Sono:</b> Relata sono não reparador, cerca de 5 a 6 horas por noite.<br>
+                                <b>Estresse:</b> Alto, relacionado ao trabalho.
+                            </div>
+                        </div>
+                        <div class="profile-info-item">
+                            <div class="profile-info-label">Queixa Principal (QP):</div>
+                            <div class="profile-info-value"><b>"Dores no peito e falta de ar aos esforços há cerca de 1
+                                    semana."</b></div>
+                        </div>
+                    </div>
+
+                    <!-- Formulário de Edição (inicialmente oculto) -->
+                    <form class="edit-form" id="editMedicalHistoryForm">
+                        <div class="form-group">
+                            <label for="hpp" class="form-label">Histórico Patológico Pregresso (HPP)</label>
+                            <textarea id="hpp" class="form-control">Doenças: Hipertensão arterial diagnosticada há 5 anos, em uso irregular de medicação. 
+Cirurgias: Apendicectomia (retirada do apêndice) aos 25 anos.
+Internações: Nenhuma além da cirurgia mencionada.
+Alergias: Nega.
+Uso de medicamentos: Losartana 50mg (uso irregular).</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="physicalExam" class="form-label">Exame Físico</label>
+                            <input type="text" id="physicalExam" class="form-control"
+                                value="92 kg - 1,75 m - IMC: 30,0 kg/m² - Pressão arterial: 150 x 95 mmHg">
+                        </div>
+                        <div class="form-group">
+                            <label for="systemReview" class="form-label">Revisão de Sistemas</label>
+                            <textarea id="systemReview" class="form-control">Cardiovascular: Dor no peito aos esforços, palpitações eventuais.
+Respiratório: Falta de ar leve aos esforços, sem tosse.
+Gastrointestinal: Azia frequente, principalmente à noite.
+Neurológico: Nega tonturas, desmaios ou cefaleias.
+Genitourinário: Função urinária normal.
+Endócrino: Queixa de ganho de peso nos últimos anos, sede leve.</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="familyHistory" class="form-label">Histórico Familiar (HF)</label>
+                            <textarea id="familyHistory" class="form-control">Pai falecido aos 60 anos por infarto.
+Mãe hipertensa e diabética.
+Irmão com colesterol alto (dislipidemia).</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="psychosocialHistory" class="form-label">Histórico Psicossocial</label>
+                            <textarea id="psychosocialHistory" class="form-control">Drogas ilícitas: Nega.
+Atividade física: Sedentário.
+Alimentação: Rica em alimentos industrializados, frituras e refrigerantes, baixa ingestão de frutas e verduras.
+Sono: Relata sono não reparador, cerca de 5 a 6 horas por noite.
+Estresse: Alto, relacionado ao trabalho.</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="mainComplaint" class="form-label">Queixa Principal (QP)</label>
+                            <textarea id="mainComplaint"
+                                class="form-control">"Dores no peito e falta de ar aos esforços há cerca de 1 semana."</textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn">Salvar Alterações</button>
+                            <button type="button" class="btn btn-outline" id="cancelEditMedicalBtn">Cancelar</button>
+                        </div>
+                    </form>
+
+                    <!-- Seção de Agendamentos (inicialmente oculta) -->
+                    <div id="appointmentsSection" style="display: none;">
+                        <h2>Seus Agendamentos</h2>
+                        <p>Veja e gerencie seus próximos agendamentos.</p>
+
+                        <div class="appointments-list">
+                            <div class="appointment-card">
+                                <div class="appointment-info">
+                                    <h4>Consulta Geral</h4>
+                                    <p><i class="far fa-calendar-alt"></i> 20/06/2024 às 14:00</p>
+                                    <p><i class="fas fa-user-md"></i> Dr. Marcelo Silva</p>
+                                    <span class="appointment-status status-confirmed">Confirmado</span>
+                                </div>
+                                <div class="appointment-actions">
+                                    <button class="action-btn btn-outline"><i class="fas fa-edit"></i> Alterar</button>
+                                    <button class="action-btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+                                </div>
+                            </div>
+
+                            <div class="appointment-card">
+                                <div class="appointment-info">
+                                    <h4>Limpeza Profissional</h4>
+                                    <p><i class="far fa-calendar-alt"></i> 05/07/2024 às 10:30</p>
+                                    <p><i class="fas fa-user-md"></i> Dra. Renata Lima</p>
+                                    <span class="appointment-status status-pending">Pendente</span>
+                                </div>
+                                <div class="appointment-actions">
+                                    <button class="action-btn btn-outline"><i class="fas fa-edit"></i> Alterar</button>
+                                    <button class="action-btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+                                </div>
+                            </div>
+
+                            <div class="appointment-card">
+                                <div class="appointment-info">
+                                    <h4>Clareamento Dental</h4>
+                                    <p><i class="far fa-calendar-alt"></i> 15/05/2024 às 16:00</p>
+                                    <p><i class="fas fa-user-md"></i> Dr. Paulo Santos</p>
+                                    <span class="appointment-status status-canceled">Cancelado</span>
+                                </div>
+                                <div class="appointment-actions">
+                                    <button class="action-btn"><i class="fas fa-redo"></i> Reagendar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Rodapé -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-tooth"></i>
+                        OdontoLux
+                    </div>
+                    <p class="footer-text">Cuidando do seu sorriso com excelência e tecnologia desde 2020.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title"></h3>
+                    <ul class="footer-links">
+                        <li><a href="dashboard.html" class="footer-link">Início</a></li>
+                        <li><a href="dashboard.html" class="footer-link">Serviços</a></li>
+                        <li><a href="dashboard.html" class="footer-link">Agendamento</a></li>
+                        <li><a href="contato.html" class="footer-link">Contato</a></li>
+                        <li><a href="sobrenos.html" class="footer-link">Sobre nós</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Horário de Funcionamento</h3>
+                    <ul class="footer-links">
+                        <li>Segunda - Sexta: 8h às 19h</li>
+                        <li>Sábado: 8h às 13h</li>
+                        <li>Domingo: Fechado</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Contato</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Ceará - Clinica 1, 2 e 3 </li>
+                        <li><i class="fas fa-phone"></i> (11) 9999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@odontolux.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 OdontoLux. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+
+        // Menu Mobile
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navList = document.getElementById('navList');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        // Navegação do perfil
+        const profileMenuLinks = document.querySelectorAll('.profile-menu-link');
+
+        profileMenuLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // Remove a classe active de todos os links
+                profileMenuLinks.forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Adiciona a classe active apenas no link clicado
+                link.classList.add('active');
+
+                // Mostra a seção correspondente
+                const target = link.getAttribute('href').substring(1);
+                if (target === 'info') {
+                    window.location.href = 'perfilcliente.html';
+                } else if (target === 'appointments') {
+                    document.getElementById('medicalHistoryInfo').style.display = 'none';
+                    document.getElementById('editMedicalHistoryForm').style.display = 'none';
+                    document.getElementById('appointmentsSection').style.display = 'block';
+                } else if (target === 'medical-history') {
+                    document.getElementById('medicalHistoryInfo').style.display = 'block';
+                    document.getElementById('editMedicalHistoryForm').style.display = 'none';
+                    document.getElementById('appointmentsSection').style.display = 'none';
+                }
+            });
+        });
+
+        // Edição do perfil
+        const editProfileBtn = document.getElementById('editProfileBtn');
+        const cancelEditMedicalBtn = document.getElementById('cancelEditMedicalBtn');
+        const medicalHistoryInfo = document.getElementById('medicalHistoryInfo');
+        const editMedicalHistoryForm = document.getElementById('editMedicalHistoryForm');
+
+        editProfileBtn.addEventListener('click', () => {
+            medicalHistoryInfo.style.display = 'none';
+            editMedicalHistoryForm.style.display = 'block';
+        });
+
+        cancelEditMedicalBtn.addEventListener('click', () => {
+            medicalHistoryInfo.style.display = 'block';
+            editMedicalHistoryForm.style.display = 'none';
+        });
+
+        // Envio do formulário de edição
+        editMedicalHistoryForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Aqui você adicionaria a lógica para salvar as alterações
+            // Por exemplo, enviar para um servidor ou atualizar localStorage
+
+            alert('Histórico médico atualizado com sucesso!');
+            medicalHistoryInfo.style.display = 'block';
+            editMedicalHistoryForm.style.display = 'none';
+
+            // Atualizar os dados exibidos (simulação)
+            // Você pode adicionar a lógica para atualizar cada campo do histórico médico aqui
+        });
+
+        // Máscara para telefone
+        const phoneInput = document.getElementById('phone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 11) value = value.substring(0, 11);
+
+                if (value.length > 0) {
+                    value = value.replace(/^(\d{0,2})(\d{0,5})(\d{0,4})/, function (match, g1, g2, g3) {
+                        let result = '';
+                        if (g1) result += `(${g1}`;
+                        if (g2) result += `) ${g2}`;
+                        if (g3) result += `-${g3}`;
+                        return result;
+                    });
+                }
+
+                e.target.value = value;
+            });
+        }
+
+        // Máscara para CPF
+        const cpfInput = document.getElementById('cpf');
+        if (cpfInput) {
+            cpfInput.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 11) value = value.substring(0, 11);
+
+                if (value.length > 0) {
+                    value = value.replace(/^(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2})/, function (match, g1, g2, g3, g4) {
+                        let result = '';
+                        if (g1) result += `${g1}`;
+                        if (g2) result += `.${g2}`;
+                        if (g3) result += `.${g3}`;
+                        if (g4) result += `-${g4}`;
+                        return result;
+                    });
+                }
+
+                e.target.value = value;
+            });
+        }
+
+        // Logout
+        const logoutBtn = document.getElementById('logoutBtn');
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (confirm('Tem certeza que deseja sair?')) {
+                // Aqui você adicionaria a lógica para limpar a sessão do usuário
+                // Por exemplo: localStorage.removeItem('userToken');
+                window.location.href = 'index.html';
+            }
+        });
+
+        // Scroll suave para links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Efeito de scroll no header
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+
+    </script>
+
+</body>
+
+</html>

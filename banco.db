@@ -1,0 +1,12 @@
+show databases;
+create database teste;
+use teste;
+
+create table login(
+id int(99) auto_increment,
+nome varchar(255) not null,
+email varchar(255) not null,
+senha varchar(8) not null,
+primary key(id));
+
+desc login;
